@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  title: Movies DDD
+  version: 1.0.0
+servers:
+  - url: http://{{baseurl}}
+tags:
+  - name: Genres
+  - name: Movies
+paths:
+  /genres:
+    get:
+      tags:
+        - Genres
+      summary: List
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Genres
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: '{{GenreId}}'
+                name: Comedia
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /genres/{id}:
+    get:
+      tags:
+        - Genres
+      summary: Retrieve
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: '{{GenreId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Genres
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: 93cacaf6-33d7-43b7-bc99-0fa01433dcee
+                name: Thriller 2
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: '{{GenreId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Genres
+      summary: Delete
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: '{{GenreId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /movies:
+    get:
+      tags:
+        - Movies
+      summary: List
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Movies
+      summary: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: '{{MovieId}}'
+                title: 'Thor: Love and Thunder'
+                director: Taika Waititi
+                year: 2022
+                genreId: '{{GenreId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /movies/{id}:
+    get:
+      tags:
+        - Movies
+      summary: Retrieve
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: '{{MovieId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Movies
+      summary: Update
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                id: '{{MovieId}}'
+                title: 'Thor: Love and Thunder'
+                director: Taika Waititi
+                year: 2022
+                genreId: '{{GenreId}}'
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: '{{MovieId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Movies
+      summary: Delete
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+          example: '{{MovieId}}'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
